@@ -23,7 +23,7 @@ export default defineConfig(({command, mode}) => {
     server: {
       port: viteEnv.VITE_PORT,
       proxy: {
-        // 选项写法
+        // 选项写法 
         '/api/': {
           // target: 'https://www.fastmock.site',
           target: 'https://theme.orvillex.com',
