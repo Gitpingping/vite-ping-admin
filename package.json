@@ -1,0 +1,37 @@
+{
+  "name": "vite-ping-admin",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite --mode=development --open",
+    "build": "vue-tsc --noEmit && vite build",
+    "express": "node ./src/server/app.js",
+    "serve": "vite preview"
+  },
+  "dependencies": {
+    "@ricons/ionicons5": "^0.11.0",
+    "@vicons/ionicons5": "^0.11.0",
+    "@vicons/material": "^0.11.0",
+    "@vicons/tabler": "^0.11.0",
+    "axios": "^0.22.0",
+    "jsencrypt": "^3.2.1",
+    "mockjs": "^1.1.0",
+    "naive-ui": "^2.19.3",
+    "nprogress": "^0.2.0",
+    "path": "^0.12.7",
+    "qs": "^6.10.1",
+    "vite-plugin-compression": "^0.3.5",
+    "vue": "^3.2.6",
+    "vue-router": "4",
+    "vuex": "^4.0.2"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^1.6.1",
+    "@vue/compiler-sfc": "^3.2.6",
+    "express": "^4.17.1",
+    "less": "^4.1.1",
+    "typescript": "^4.3.2",
+    "unplugin-vue-components": "^0.15.1",
+    "vite": "^2.5.4",
+    "vue-tsc": "^0.3.0"
+  }
+}

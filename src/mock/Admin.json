@@ -1,0 +1,28 @@
+{
+    "list": [{
+        "id": "1",
+        "account": "admin",
+        "name": "超级管理员",
+        "password": "123456",
+        "state": "on"
+    }, {
+        "id": "2",
+        "account": "zhangping",
+        "name": "张平",
+        "password": "123456",
+        "state": "on"
+    }, {
+        "id": "3",
+        "account": "chenjia",
+        "name": "陈佳",
+        "password": "123456",
+        "state": "on"
+    }, {
+        "id": "4",
+        "account": "dingliangyi",
+        "name": "丁良义",
+        "password": "123456",
+        "state": "off"
+    }],
+    "total": 257
+}
