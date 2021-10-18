@@ -20,7 +20,7 @@ export const routes: RouteRecordRaw[] = [
   {
     path: '/',
     component: Layout,
-    redirect: '/dashboard',
+    redirect: '/board',
     name: 'Index',
     meta: {
       isLeaf: false,

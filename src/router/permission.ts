@@ -1,17 +1,22 @@
 import { RouteRecordRaw } from 'vue-router';
 import {
     ManageAccountsOutlined,
-  } from '@vicons/material';
+} from '@vicons/material';
 import {
-    Dashboard,
+    Dashboard as DashboardIcon,
     DeviceDesktopAnalytics,
     Route as IconRoute,
-    User as IconUser
+    User as IconUser,
+    
 } from '@vicons/tabler';
 import {
-    PeopleOutline
+    PeopleOutline,
+    BarChartOutline
 } from '@vicons/ionicons5'
 const Layout = () => import('@/layout/index.vue');
+// 数据概览
+const Dashboard = () => import('@/pages/permission/board/Dashboard.vue');
+
 // 管理员
 const Admin = () => import('@/pages/permission/system/Admin.vue');
 // 用户管理
@@ -23,16 +28,29 @@ const Route = () => import('@/pages/permission/system/Route.vue');
 // const modules = import.meta.glob('../pages/permission/*/*.vue')
 // console.log('modules',modules);
 export const permissionRoute: RouteRecordRaw[] = [
-    
+
     {
-        path: '/dashboard',
+        path: '/board',
         component: Layout,
-        name: 'Dashboard',
+        name: 'Board',
+        redirect: '/board/dashboard',
         meta: {
             isLeaf: false,
             title: '看板',
-            icon: Dashboard
-        }
+            icon: DashboardIcon
+        },
+        children: [
+            {
+                path: '/board/dashboard',
+                component: Dashboard,
+                name: 'BoardDashboard',
+                meta: {
+                    isLeaf: false,
+                    title: '数据概览',
+                    icon: BarChartOutline
+                },
+            }
+        ]
     },
     {
         path: '/system',

@@ -1,14 +1,14 @@
 <script lang="ts">
 import { defineComponent, computed, h, ref, Ref, ComputedRef } from "vue";
 import { useReadonly, useReactive } from "@/hooks/vue";
-import { useSelection,useRowKey } from "@/hooks/naive-ui";
+import { useSelection, useRowKey } from "@/hooks/naive-ui";
 import { AdminSearchForm, AdminTableItem } from "@/interface/Admin";
 import { QUERYADMINTABLE } from "@/vuex/modules/system/admin";
 import TableOptions from "@/components/custom/TableOptions.vue";
 import SearchOptions from "@/components/custom/SearchOptions.vue";
 import OptionsList from "@/components/custom/OptionsList.vue";
 import { useStore, Store } from "vuex";
-import { FormValidationError, NForm, } from "naive-ui";
+import { FormValidationError, NForm } from "naive-ui";
 import validate from "@/utils/validate";
 
 export default defineComponent({
@@ -37,14 +37,15 @@ export default defineComponent({
     }
     function add() {}
     function del() {}
+    { foo: 123 }
     // 表格列
     const columns = useReadonly([
       {
-    type: 'selection',
-    disabled (row, index) {
-      return row.name === 'Edward King 3'
-    }
-  },
+        type: "selection",
+        disabled(row, index) {
+          return row.name === "Edward King 3";
+        },
+      },
       {
         title: "登录账户",
         key: "account",
@@ -122,7 +123,7 @@ export default defineComponent({
       triggerSearchForm,
       searchFormShow,
       pagination,
-      useRowKey
+      useRowKey,
       // rules,
     };
   },
@@ -130,7 +131,6 @@ export default defineComponent({
     TableOptions,
     SearchOptions,
     OptionsList,
-    
   },
 });
 </script>
@@ -182,7 +182,7 @@ export default defineComponent({
     <n-data-table
       ref="table"
       :columns="columns"
-      :row-key="row => row.id"
+      :row-key="(row) => row.id"
       :data="tableList"
       :scroll-x="1200"
     />

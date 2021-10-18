@@ -23,7 +23,10 @@ import {
     NGrid,
     NGridItem,
     NSpace,
-    NPagination
+    NPagination,
+    NCard,
+    NTag,
+    NProgress
 } from 'naive-ui'
 export const naive = create({
     components: [NButton, NForm, NInput, NCheckbox, NIcon, NDivider, NFormItem, NLayout,
@@ -40,6 +43,9 @@ export const naive = create({
         NGrid,
         NGridItem,
         NSpace,
-        NPagination
+        NPagination,
+        NCard,
+        NTag,
+        NProgress
     ]
 });

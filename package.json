@@ -12,6 +12,7 @@
     "@vicons/ionicons5": "^0.11.0",
     "@vicons/material": "^0.11.0",
     "@vicons/tabler": "^0.11.0",
+    "@vueuse/core": "^6.6.1",
     "axios": "^0.22.0",
     "jsencrypt": "^3.2.1",
     "mockjs": "^1.1.0",
