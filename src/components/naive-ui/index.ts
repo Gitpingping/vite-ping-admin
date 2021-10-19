@@ -28,7 +28,12 @@ import {
     NTag,
     NProgress,
     NTabs,
-    NTabPane
+    NTabPane,
+    NAvatar,
+    NList,
+    NListItem,
+    NTime,
+    NImage
 } from 'naive-ui'
 export const naive = create({
     components: [NButton, NForm, NInput, NCheckbox, NIcon, NDivider, NFormItem, NLayout,
@@ -50,6 +55,11 @@ export const naive = create({
         NTag,
         NProgress,
         NTabs,
-        NTabPane
+        NTabPane,
+        NAvatar,
+        NList,
+    NListItem,
+    NTime,
+    NImage
     ]
 });

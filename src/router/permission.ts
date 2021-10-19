@@ -11,11 +11,14 @@ import {
 } from '@vicons/tabler';
 import {
     PeopleOutline,
-    BarChartOutline
+    BarChartOutline,
+    CalendarOutline
 } from '@vicons/ionicons5'
 const Layout = () => import('@/layout/index.vue');
 // 数据概览
 const Dashboard = () => import('@/pages/permission/board/Dashboard.vue');
+// 工作台
+const Workplace = () => import('@/pages/permission/board/Workplace.vue');
 
 // 管理员
 const Admin = () => import('@/pages/permission/system/Admin.vue');
@@ -48,6 +51,16 @@ export const permissionRoute: RouteRecordRaw[] = [
                     isLeaf: false,
                     title: '数据概览',
                     icon: BarChartOutline
+                },
+            },
+            {
+                path: '/board/workplace',
+                component: Workplace,
+                name: 'BoardWorkplace',
+                meta: {
+                    isLeaf: false,
+                    title: '工作台',
+                    icon: CalendarOutline
                 },
             }
         ]
