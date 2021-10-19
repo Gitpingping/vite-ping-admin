@@ -26,7 +26,9 @@ import {
     NPagination,
     NCard,
     NTag,
-    NProgress
+    NProgress,
+    NTabs,
+    NTabPane
 } from 'naive-ui'
 export const naive = create({
     components: [NButton, NForm, NInput, NCheckbox, NIcon, NDivider, NFormItem, NLayout,
@@ -46,6 +48,8 @@ export const naive = create({
         NPagination,
         NCard,
         NTag,
-        NProgress
+        NProgress,
+        NTabs,
+        NTabPane
     ]
 });

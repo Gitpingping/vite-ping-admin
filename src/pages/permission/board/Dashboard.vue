@@ -1,7 +1,8 @@
 <script lang="ts">
-import { Component, defineComponent, ref } from "vue";
+import { Component, defineComponent, markRaw } from "vue";
 import CountTo from "@/components/custom/CountTo.vue";
 import { CaretDown, CaretUp } from "@vicons/ionicons5";
+import { LineSmooth, Bar } from "@/components/echarts";
 import {
   Users,
   ChartBar,
@@ -23,50 +24,58 @@ export default defineComponent({
   setup() {
     const iconsList = useReactive<IconItem[]>([
       {
-        icon: Users,
+        icon: markRaw(Users),
         title: "用户",
         color: "#69c0ff",
       },
       {
-        icon: ChartBar,
+        icon: markRaw(ChartBar),
         title: "分析",
         color: "#69c0ff",
       },
       {
-        icon: ShoppingCart,
+        icon: markRaw(ShoppingCart),
         title: "商品",
         color: "#ff9c6e",
       },
       {
-        icon: ClipboardList,
+        icon: markRaw(ClipboardList),
         title: "订单",
         color: "#b37feb",
       },
       {
-        icon: Ticket,
+        icon: markRaw(Ticket),
         title: "票据",
         color: "#ffd666",
       },
       {
-        icon: Mail,
+        icon: markRaw(Mail),
         title: "消息",
         color: "#5cdbd3",
       },
       {
-        icon: Tag,
+        icon: markRaw(Tag),
         title: "标签",
         color: "#ff85c0",
       },
       {
-        icon: Settings,
+        icon: markRaw(Settings),
         title: "配置",
         color: "#ffd666",
       },
     ]);
+
+    function handleTabsChange(value: string | number) {
+      console.log(value);
+    }
     return {
       CaretDown,
       CaretUp,
+      CountTo,
       iconsList,
+      LineSmooth,
+      Bar,
+      handleTabsChange,
     };
   },
   components: {
@@ -81,12 +90,13 @@ export default defineComponent({
     Ticket,
     Tag,
     Settings,
+    LineSmooth,
   },
 });
 </script>
 
 <template>
-  <n-grid  cols="800:2 1200:4 1920:6" :x-gap="12" :y-gap="12">
+  <n-grid cols="800:2 1200:4 1920:6" :x-gap="12" :y-gap="12">
     <n-grid-item>
       <n-card title="访问量" hoverable>
         <template #header-extra><n-tag type="primary">日</n-tag></template>
@@ -209,24 +219,41 @@ export default defineComponent({
     </n-grid-item>
   </n-grid>
   <div class="mt-12">
-      <n-grid cols="800:4 1200:8 1920:12" :x-gap="12"  :y-gap="12">
-    <n-grid-item v-for="(icon, index) in iconsList" :key="index">
-      <n-card  content-style="padding-top: 0;">
-        <template #footer>
-          <div class="flex justify-center direction-column align-center">
-            <n-icon :size="28" :color="icon.color">
-              <component :is="icon.icon"></component>
-            </n-icon>
-            <span>{{icon.title}}</span>
-          </div>
-        </template>
-      </n-card>
-    </n-grid-item>
-  </n-grid>
+    <n-grid cols="800:4 1200:8 1920:12" :x-gap="12" :y-gap="12">
+      <n-grid-item v-for="(icon, index) in iconsList" :key="index">
+        <n-card content-style="padding-top: 0;">
+          <template #footer>
+            <div class="flex justify-center direction-column align-center">
+              <n-icon :size="28" :color="icon.color">
+                <component :is="icon.icon"></component>
+              </n-icon>
+              <span>{{ icon.title }}</span>
+            </div>
+          </template>
+        </n-card>
+      </n-grid-item>
+    </n-grid>
+  </div>
+  <div class="mt-12 bg-white" style="padding: 20px">
+    <n-tabs type="line" :on-update:value="handleTabsChange">
+      <n-tab-pane name="1" tab="销售额">
+        <component :is="LineSmooth" tag="div" class="charts"
+      /></n-tab-pane>
+      <n-tab-pane name="2" tab="访问量"
+        ><component :is="Bar" tag="div" class="charts"
+      /></n-tab-pane>
+    </n-tabs>
   </div>
 </template>
 <style lang="less" scoped>
 .count {
   font-size: 30px;
+}
+.charts {
+  height: 400px;
+  background-color: #fff;
+  // padding: 20px;
+  box-sizing: border-box;
+
 }
 </style>
