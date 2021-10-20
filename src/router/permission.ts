@@ -12,7 +12,9 @@ import {
 import {
     PeopleOutline,
     BarChartOutline,
-    CalendarOutline
+    CalendarOutline,
+    ListCircleOutline,
+    List
 } from '@vicons/ionicons5'
 const Layout = () => import('@/layout/index.vue');
 // 数据概览
@@ -28,8 +30,8 @@ const User = () => import('@/pages/permission/system/User.vue');
 const Department = () => import('@/pages/permission/system/Department.vue');
 // 路由管理
 const Route = () => import('@/pages/permission/system/Route.vue');
-// const modules = import.meta.glob('../pages/permission/*/*.vue')
-// console.log('modules',modules);
+import Example from '@/router/modules/example'
+// import { ListCircleOutline,List } from '@vicons/ionicons5';
 export const permissionRoute: RouteRecordRaw[] = [
 
     {
@@ -65,6 +67,9 @@ export const permissionRoute: RouteRecordRaw[] = [
             }
         ]
     },
+    Example.ListRoutes,
+    Example.ExceptionRoutes,
+    Example.FormRoutes,
     {
         path: '/system',
         component: Layout,

@@ -33,7 +33,11 @@ import {
     NList,
     NListItem,
     NTime,
-    NImage
+    NImage,
+    NDatePicker,
+    NAutoComplete,
+    NColorPicker,
+    NCheckboxGroup,
 } from 'naive-ui'
 export const naive = create({
     components: [NButton, NForm, NInput, NCheckbox, NIcon, NDivider, NFormItem, NLayout,
@@ -58,8 +62,12 @@ export const naive = create({
         NTabPane,
         NAvatar,
         NList,
-    NListItem,
-    NTime,
-    NImage
-    ]
+        NListItem,
+        NTime,
+        NImage,
+        NDatePicker,
+        NAutoComplete,
+        NColorPicker,
+        NCheckboxGroup,
+]
 });

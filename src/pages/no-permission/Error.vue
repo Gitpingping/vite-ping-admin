@@ -17,9 +17,9 @@ export default defineComponent({
 <template>
     <div class="not-found">
         <div class="logo-btn">
-            <img src="@/images/404.png" class="img-404" />
+            <img src="@/images/500.png" class="img-404" />
             <br />
-            <p class="tips">抱歉，你访问的页面不存在</p>
+            <p class="tips">抱歉，服务器可能出错了。</p>
             <n-button class="back-to-index" type="warning" round @click="backToIndex">返回首页</n-button>
         </div>
     </div>

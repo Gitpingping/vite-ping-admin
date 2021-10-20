@@ -1,12 +1,12 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import logoImg from '../images/logo.png';
-import { LogInOutline, NotificationsOutline, SettingsOutline } from '@vicons/ionicons5';
+import { LogInOutline, NotificationsOutline, SettingsOutline, LogoGithub,GitCommitOutline } from '@vicons/ionicons5';
 import { useRouter, Router } from 'vue-router';
 import { useDialog } from 'naive-ui';
 export default defineComponent({
     components: {
-        LogInOutline, NotificationsOutline, SettingsOutline
+        LogInOutline, NotificationsOutline, SettingsOutline,LogoGithub
     },
     setup() {
         const router: Router = useRouter();
@@ -45,6 +45,24 @@ export default defineComponent({
             </ul>
         </div>
         <ul class="user-center">
+            <li>
+                <n-tooltip trigger="hover">
+                    <template #trigger>
+                        <n-icon>
+                            <LogoGithub />
+                        </n-icon>
+                    </template>
+                    github
+                </n-tooltip>
+            </li>
+            <li>
+                <n-tooltip trigger="hover">
+                    <template #trigger>
+                        Gitee
+                    </template>
+                    干！没找到码云的logo
+                </n-tooltip>
+            </li>
             <li>
                 <n-tooltip trigger="hover">
                     <template #trigger>

@@ -73,8 +73,6 @@ export default defineComponent({
       CaretUp,
       CountTo,
       iconsList,
-      LineSmooth,
-      Bar,
       handleTabsChange,
     };
   },
@@ -91,6 +89,7 @@ export default defineComponent({
     Tag,
     Settings,
     LineSmooth,
+    Bar
   },
 });
 </script>
@@ -237,11 +236,11 @@ export default defineComponent({
   <div class="mt-12 bg-white" style="padding: 20px">
     <n-tabs type="line" :on-update:value="handleTabsChange">
       <n-tab-pane name="1" tab="销售额">
-        <component :is="LineSmooth" tag="div" class="charts"
-      /></n-tab-pane>
+        <LineSmooth class="charts" />
+      </n-tab-pane>
       <n-tab-pane name="2" tab="访问量"
-        ><component :is="Bar" tag="div" class="charts"
-      /></n-tab-pane>
+        >
+        <Bar class="charts"/></n-tab-pane>
     </n-tabs>
   </div>
 </template>

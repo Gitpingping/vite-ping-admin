@@ -39,7 +39,7 @@ export default defineComponent({
       userName: "admin",
       password: "123456",
       remember: true,
-      loginCode: "",
+      loginCode: "test",
     });
     // 表单实例
     const formRef = ref();
@@ -66,21 +66,25 @@ export default defineComponent({
         if (!errors) {
           // localStorage.setItem("jwtoken", "zhangpingcloud");
           message.loading("登录中");
-          store
-            .dispatch(LOGIN, loginInfo)
-            .then((res: LoginResponse<LoginResponseUser>) => {
-              message.success("登录成功");
-              localStorage.setItem("jwtoken", res.token);
-              localStorage.setItem("user", JSON.stringify(res.user));
+          message.success("登录成功");
+              localStorage.setItem("jwtoken", 'token');
               store.commit(ADDROUTE)
               router.replace("/");
-            })
-            .catch((err) => {
-              queryLoginCode();
-              message.destroyAll();
-              message.error(err.message);
-            })
-            .finally(() => {});
+          // store
+          //   .dispatch(LOGIN, loginInfo)
+          //   .then((res: LoginResponse<LoginResponseUser>) => {
+          //     message.success("登录成功");
+          //     localStorage.setItem("jwtoken", res.token);
+          //     localStorage.setItem("user", JSON.stringify(res.user));
+          //     store.commit(ADDROUTE)
+          //     router.replace("/");
+          //   })
+          //   .catch((err) => {
+          //     queryLoginCode();
+          //     message.destroyAll();
+          //     message.error(err.message);
+          //   })
+          //   .finally(() => {});
         } else {
           console.log(errors);
         }

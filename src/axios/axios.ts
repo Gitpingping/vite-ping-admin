@@ -15,7 +15,10 @@ function renderBaseUrl(config:AxiosRequestConfig):AxiosRequestConfig{
             url: '/mock/' + config.url
         }
     }
-    return config
+    return {
+        ...config,
+        baseURL: '/api/'
+    }
 }
 export const service: AxiosInstance = axios.create({
     baseURL: '/',

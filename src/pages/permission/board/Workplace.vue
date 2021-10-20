@@ -76,7 +76,7 @@ export default defineComponent({
                     <div class="flex align-center">
                         <n-avatar round :size="60" :src="avatar"></n-avatar>
                         <div>
-                            <p class="hello">早安，Ah jung，开始您一天的工作吧！</p>
+                            <p class="hello">早安，zhangping，开始您一天的工作吧！</p>
                             <span class="tips">今日阴转大雨，15℃ - 25℃，出门记得带伞哦。</span>
                         </div>
                     </div>

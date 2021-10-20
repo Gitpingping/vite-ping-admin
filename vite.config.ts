@@ -18,7 +18,6 @@ export default defineConfig(({command, mode}) => {
   const root = process.cwd();
   const ENV = loadEnv(mode, root);
   const viteEnv = formatEnv<ENVTYPE>(ENV);
-  console.log(viteEnv);
   return {
     server: {
       port: viteEnv.VITE_PORT,
