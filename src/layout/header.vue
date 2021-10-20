@@ -46,7 +46,8 @@ export default defineComponent({
         </div>
         <ul class="user-center">
             <li>
-                <n-tooltip trigger="hover">
+                <a href="https://github.com/Gitpingping/vite-ping-admin.git" target="_blank">
+                    <n-tooltip trigger="hover">
                     <template #trigger>
                         <n-icon>
                             <LogoGithub />
@@ -54,6 +55,7 @@ export default defineComponent({
                     </template>
                     github
                 </n-tooltip>
+                </a>
             </li>
             <li>
                 <n-tooltip trigger="hover">
