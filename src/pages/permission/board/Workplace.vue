@@ -58,7 +58,7 @@ export default defineComponent({
 
         return {
             avatar,
-            iconsList,
+            iconsList, 
             Business
         };
     },
