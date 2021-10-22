@@ -16,4 +16,4 @@ jobs:
         ACCESS_TOKEN: ${{ secrets.VITE_PING_ADMIN }}
         BRANCH: gh-pages
         FOLDER: build
-        BUILD_SCRIPT: npm install cnpm && cnpm install yarn && yarn install && yarn run build
+        BUILD_SCRIPT: npm install && npm run build
