@@ -38,5 +38,6 @@
     "unplugin-vue-components": "^0.15.1",
     "vite": "^2.5.4",
     "vue-tsc": "^0.3.0"
-  }
+  },
+  "homepage": "https://zhangpingcloud.github.io/vite-ping-admin"
 }
