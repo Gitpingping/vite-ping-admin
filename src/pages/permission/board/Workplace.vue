@@ -50,7 +50,7 @@ export default defineComponent({
             },
             {
                 icon: markRaw(Mail),
-                title: "消息",
+                title: "消息", 
                 color: "#5cdbd3",
             },
 
