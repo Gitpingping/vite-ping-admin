@@ -1,23 +1,29 @@
-name: Setup Node.js environment
-  uses: actions/setup-node@v2.4.1
-    with:
-    # Set always-auth in npmrc
-    always-auth: # optional, default is false
-    # Version Spec of the version to use.  Examples: 12.x, 10.15.1, >=10.15.0
-    node-version: 14.17.6 # optional
-    # Target architecture for Node to use. Examples: x86, x64. Will use system architecture by default.
-    architecture: # optional
-    # Set this option if you want the action to check for the latest available version that satisfies the version spec
-    check-latest: # optional
-    # Optional registry to set up for auth. Will set the registry in a project level .npmrc and .yarnrc file, and set up auth to read in from env.NODE_AUTH_TOKEN
-    registry-url: # optional
-    # Optional scope for authenticating against scoped registries
-    scope: # optional
-    # Used to pull node distributions from node-versions.  Since there's a default, this is typically not supplied by the user.
-    token: ${{ github.VITE_PING_ADMIN }} # optional, default is ${{ github.token }}
-    # Used to specify a package manager for caching in the default directory. Supported values: npm, yarn, pnpm
-    cache: # optional
-    # Used to specify the path to a dependency file: package-lock.json, yarn.lock, etc. Supports wildcards or a list of file names for caching multiple dependencies.
-    cache-dependency-path: # optional
-    # Deprecated. Use node-version instead. Will not be supported after October 1, 2019
-    version: # optional
+name: 构建部署
+on: # 监听 master 分支上的 push 事件
+  push:
+    branches:
+      - main
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest # 构建环境使用 ubuntu
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2.3.4  
+        with:
+          persist-credentials: false
+
+      - name: Install and Build # 下载依赖 打包项目
+        run: |
+          npm install cnpm -g --registry=https://registry.npm.taobao.org
+          cnpm install yarn
+          yarn install
+          install run build
+
+      - name: Deploy # 将打包内容发布到 github page
+        uses: JamesIves/github-pages-deploy-action@4.1.5 # 使用别人写好的 actions
+        with:  # 自定义环境变量
+          token: ${{ secrets.VITE_PING_ADMIN }} # VUE_ADMIN_TEMPLATE 是我的 secret 名称，需要替换成你的
+          folder: dist
+          branch: main
+          repository-name: Gitpingping/Gitpingping.github.io # 这是我的 github page 仓库
+
