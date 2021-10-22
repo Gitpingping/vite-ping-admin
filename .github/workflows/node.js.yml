@@ -26,5 +26,8 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - run: npm i
-    - run: npm run build 
+
+    - run: npm install cnpm -g --registry=https://registry.npmmirror.com
+    - run: cnpm i yarn
+    - run: yarn install
+    - run: yarn run build 
