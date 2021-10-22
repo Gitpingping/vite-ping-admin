@@ -1,4 +1,4 @@
-name: 构建部署
+name: Build
 on: # 监听 master 分支上的 push 事件
   push:
     branches:
@@ -13,10 +13,10 @@ jobs:
           persist-credentials: false
       - name: Install and Build # 下载依赖 打包项目
         run: |
-          npm install cnpm -g --registry=https://registry.npm.taobao.org
+          npm install cnpm -g --registry=https://registry.npmmirror.com
           cnpm install yarn
           yarn install
-          install run build
+          yarn run build
       - name: Deploy # 将打包内容发布到 github page
         uses: JamesIves/github-pages-deploy-action@4.1.5 # 使用别人写好的 actions
         with:  # 自定义环境变量
