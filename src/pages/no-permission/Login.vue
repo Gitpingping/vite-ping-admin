@@ -41,7 +41,7 @@ export default defineComponent({
       userName: "admin",
       password: "123456",
       remember: true,
-      loginCode: "test",
+      loginCode: "",
     });
     // 表单实例
     const formRef = ref();
