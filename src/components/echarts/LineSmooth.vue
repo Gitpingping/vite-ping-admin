@@ -88,7 +88,7 @@ export default defineComponent({
             name: "销量",
             type: "line",
             smooth: true,
-            data: [12345, 4567420, 363223, 3467510, 1124540, 154320],
+            data: [0, 12000, 0, 12000, 0, 12000],
             areaStyle: {
               opacity: 0.8,
               color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
@@ -107,7 +107,7 @@ export default defineComponent({
             name: "销售额",
             type: "line",
             smooth: true,
-            data: [158855, 1698550, 159965, 158890, 4112540, 596320],
+            data: [12000, 0, 12000, 0, 12000, 0],
             areaStyle: {
               opacity: 0.8,
               color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [

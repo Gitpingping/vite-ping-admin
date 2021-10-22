@@ -24,13 +24,15 @@ export default defineComponent({
     const bg = ref(loginBg);
     // 左上角、右下角
     const [tl, br] = [ref(topLeft), ref(bottomRight)];
-
+    // 路由实例
+    const router = useRouter();
     // 获取登录验证码
     function queryLoginCode() {
       useLoginCode.call(store);
     }
     onMounted(() => {
       useLoginCode.call(store);
+      console.log(router.getRoutes());
     });
     // Store
     const store: Store<any> = useStore();
@@ -47,8 +49,7 @@ export default defineComponent({
     const loginRules = useValidate();
     // const formCase = useForm(loginInfo, loginRules);
 
-    // 路由实例
-    const router = useRouter();
+    
 
     const message = useMessage();
 
