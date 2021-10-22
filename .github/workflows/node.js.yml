@@ -1,37 +1,22 @@
-name: Node.js CI
 
-on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
-
+name: Build and Deploy
+on: [push]
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [14.17.6]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-
     steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v2
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm'
-    - run: npm install cnpm -g --registry=https://registry.npmmirror.com
-    - run: cnpm i yarn
-    - run: yarn install
-    - run: yarn run build 
+      - name: Checkout 🛎️
+        uses: actions/checkout@v2.3.1
 
-    - name: Deploy # 将打包内容发布到 github page
-      uses: JamesIves/github-pages-deploy-action@3.5.9 # 使用别人写好的 actions
-      with:  # 自定义环境变量
-          ACCESS_TOKEN: ${{ secrets.VITE_PING_ADMIN }} # VUE_ADMIN_TEMPLATE 是我的 secret 名称，需要替换成你的
-          BRANCH: master
-          FOLDER: dist
-          REPOSITORY_NAME: Gitpingping/Gitpingping.github.io # 这是我的 github page 仓库
-          TARGET_FOLDER: github-actions-demo # 打包的文件将放到静态服务器 github-actions-demo 目录下
+      - name: Install and Build 🔧 # This example project is built using npm and outputs the result to the 'build' folder. Replace with the commands required to build your project, or remove this step entirely if your site is pre-built.
+        run: |
+          npm install cnpm -g --registry=https://registry.npmmirror.com
+          cnpm i yarn
+          yarn install
+          yarn run build 
+
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@4.1.5
+        with:
+          branch: gh-pages # The branch the action should deploy to.
+          folder: build # The folder the action should deploy.
