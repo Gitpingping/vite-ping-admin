@@ -4,6 +4,7 @@ import logoImg from '../images/logo.png';
 import { LogInOutline, NotificationsOutline, SettingsOutline, LogoGithub,GitCommitOutline } from '@vicons/ionicons5';
 import { useRouter, Router } from 'vue-router';
 import { useDialog } from 'naive-ui';
+import { permissionRoute } from '@/router/permission';
 export default defineComponent({
     components: {
         LogInOutline, NotificationsOutline, SettingsOutline,LogoGithub
@@ -20,7 +21,14 @@ export default defineComponent({
                         positiveText: '确定',
                         negativeText: '不确定',
                         onPositiveClick: () => {
+                            // router.removeRoute()
+                            localStorage.clear();
+                            permissionRoute.forEach((route) => {
+                                router.removeRoute(route.name)
+                            })
+
                             router.replace('/login');
+                            location.reload()
                         },
                         onNegativeClick: () => {
                         }
