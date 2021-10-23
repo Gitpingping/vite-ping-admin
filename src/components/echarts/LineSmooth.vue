@@ -52,6 +52,7 @@ export default defineComponent({
     const { proxy } = getCurrentInstance();
     // console.log(proxy);
     onMounted(() => {
+      console.log('onMounted');
       var myChart = echarts.init(document.getElementById("line-smooth"));
       // 绘制图表
       myChart.setOption({
