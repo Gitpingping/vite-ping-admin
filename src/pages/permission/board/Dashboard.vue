@@ -1,5 +1,5 @@
 <script lang="ts">
-import { Component, defineComponent, markRaw } from "vue";
+import { Component, defineComponent, markRaw,KeepAlive, computed,ref,watchEffect } from "vue";
 import CountTo from "@/components/custom/CountTo.vue";
 import { CaretDown, CaretUp } from "@vicons/ionicons5";
 import { LineSmooth, Bar } from "@/components/echarts";
@@ -64,16 +64,23 @@ export default defineComponent({
         color: "#ffd666",
       },
     ]);
+    
 
+    let currentChartsTab = ref<string | number>(1)
     function handleTabsChange(value: string | number) {
-      console.log(value);
+      currentChartsTab.value = value;
+
     }
+    let chartComponent = computed(() => {
+      return currentChartsTab.value === 1? LineSmooth: Bar
+    });
     return {
       CaretDown,
       CaretUp,
       CountTo,
       iconsList,
       handleTabsChange,
+      chartComponent
     };
   },
   components: {
@@ -89,7 +96,7 @@ export default defineComponent({
     Tag,
     Settings,
     LineSmooth,
-    Bar
+    Bar,KeepAlive
   },
 });
 </script>
@@ -235,13 +242,17 @@ export default defineComponent({
   </div>
   <div class="mt-12 bg-white" style="padding: 20px">
     <n-tabs type="line" :on-update:value="handleTabsChange">
-      <n-tab-pane name="1" tab="销售额">
-        <LineSmooth class="charts" />
+      <n-tab-pane :name="1" tab="销售额">
+        <!-- <LineSmooth class="charts" /> -->
       </n-tab-pane>
-      <n-tab-pane name="2" tab="访问量"
+      <n-tab-pane :name="2" tab="访问量"
         >
-        <Bar class="charts"/></n-tab-pane>
+        <!-- <Bar class="charts"/> -->
+      </n-tab-pane>
     </n-tabs>
+    <keep-alive>
+      <component class="charts" :is="chartComponent" />
+    </keep-alive>
   </div>
 </template>
 <style lang="less" scoped>
