@@ -38,6 +38,9 @@ import {
     NAutoComplete,
     NColorPicker,
     NCheckboxGroup,
+    NBreadcrumb,
+    NBreadcrumbItem,
+    NDropdown
 } from 'naive-ui'
 export const naive = create({
     components: [NButton, NForm, NInput, NCheckbox, NIcon, NDivider, NFormItem, NLayout,
@@ -69,5 +72,8 @@ export const naive = create({
         NAutoComplete,
         NColorPicker,
         NCheckboxGroup,
+        NBreadcrumb,
+        NBreadcrumbItem,
+    NDropdown
 ]
 });

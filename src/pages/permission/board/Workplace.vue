@@ -19,6 +19,7 @@ export interface IconItem {
     title: string;
     color: string;
 }
+
 export default defineComponent({
     name: "Workplace",
     setup() {

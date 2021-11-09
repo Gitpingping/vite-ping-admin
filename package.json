@@ -4,7 +4,7 @@
   "scripts": {
     "dev": "vite --mode=development --open",
     "build": "vue-tsc --noEmit && vite build",
-    "express": "node ./src/server/app.js",
+    "express": "nodemon.cmd ./src/server/app.js",
     "serve": "vite preview"
   },
   "dependencies": {
@@ -17,10 +17,13 @@
     "echarts": "^5.2.1",
     "jsencrypt": "^3.2.1",
     "mockjs": "^1.1.0",
+    "mysql": "^2.18.1",
+    "mysql2": "^2.3.3-rc.0",
     "naive-ui": "^2.19.3",
     "nprogress": "^0.2.0",
     "path": "^0.12.7",
     "qs": "^6.10.1",
+    "sequelize": "^6.9.0",
     "vite-plugin-compression": "^0.3.5",
     "vue": "^3.2.6",
     "vue-router": "4",
@@ -32,6 +35,7 @@
     "@vue/compiler-sfc": "^3.2.6",
     "express": "^4.17.1",
     "less": "^4.1.1",
+    "nodemon": "^2.0.14",
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-external-globals": "^0.6.1",
     "typescript": "^4.3.2",

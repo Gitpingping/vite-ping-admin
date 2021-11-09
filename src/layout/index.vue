@@ -29,8 +29,8 @@
 import { defineComponent, ref } from 'vue';
 import { RouterView, RouterLink, useRouter } from 'vue-router';
 import { useMessage } from 'naive-ui';
-import Header from './header.vue';
-import Nav from './nav.vue';
+import Header from './Header.vue';
+import Nav from './Nav.vue';
 
 export default defineComponent({
   components: {

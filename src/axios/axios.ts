@@ -4,12 +4,12 @@ import axios, { AxiosInstance, AxiosRequestConfig } from 'axios';
 function renderBaseUrl(config:AxiosRequestConfig):AxiosRequestConfig{
     const envs = import.meta.env;
     if(envs.MODE === 'development'){
-        if(config.url.indexOf('auth') !== -1){
-            return {
-                ...config,
-                url: '/api/' + config.url
-            }
-        }
+        // if(config.url.indexOf('auth') !== -1){
+        //     return {
+        //         ...config,
+        //         url: '/api/' + config.url
+        //     }
+        // }
         return {
             ...config,
             url: '/mock/' + config.url

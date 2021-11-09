@@ -168,26 +168,26 @@ export async function useLoginCode(): Promise<void> {
             </template>
           </n-input>
         </n-form-item>
-        <n-form-item path="loginCode" label=" " :first="true">
-          <n-input
-            v-model:value="loginInfo.loginCode"
-            @keyup.enter="login"
-            round
-            size="large"
-            class="input"
-            placeholder="请输入验证码"
-            type="text"
-          >
-            <template #prefix>
-              <n-icon>
-                <ShieldCheckmark />
-              </n-icon>
-            </template>
-            <template #suffix>
-              <img @click="queryLoginCode" :src="loginCode" alt="" />
-            </template>
-          </n-input>
-        </n-form-item>
+<!--        <n-form-item path="loginCode" label=" " :first="true">-->
+<!--          <n-input-->
+<!--            v-model:value="loginInfo.loginCode"-->
+<!--            @keyup.enter="login"-->
+<!--            round-->
+<!--            size="large"-->
+<!--            class="input"-->
+<!--            placeholder="请输入验证码"-->
+<!--            type="text"-->
+<!--          >-->
+<!--            <template #prefix>-->
+<!--              <n-icon>-->
+<!--                <ShieldCheckmark />-->
+<!--              </n-icon>-->
+<!--            </template>-->
+<!--            <template #suffix>-->
+<!--              <img @click="queryLoginCode" :src="loginCode" alt="" />-->
+<!--            </template>-->
+<!--          </n-input>-->
+<!--        </n-form-item>-->
         <n-form-item name="remember">
           <n-checkbox v-model:checked="loginInfo.remember">自动登录</n-checkbox>
           <n-divider vertical />

@@ -5,9 +5,10 @@ import { LogInOutline, NotificationsOutline, SettingsOutline, LogoGithub,GitComm
 import { useRouter, Router } from 'vue-router';
 import { useDialog } from 'naive-ui';
 import { permissionRoute } from '@/router/permission';
+import {BreadCrumb} from '@/layout/components';
 export default defineComponent({
     components: {
-        LogInOutline, NotificationsOutline, SettingsOutline,LogoGithub
+        LogInOutline, NotificationsOutline, SettingsOutline,LogoGithub,BreadCrumb
     },
     setup() {
         const router: Router = useRouter();
@@ -46,6 +47,7 @@ export default defineComponent({
 </script>
 <template>
     <div class="clear">
+        <BreadCrumb />
         <div class="extra-nav">
             <ul class="nav-list">
                 <li>系统设置</li>
